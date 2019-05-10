@@ -1,0 +1,36 @@
+{
+  "name": "zzmall-fe",
+  "version": "1.0.0",
+  "description": "zzmall前端",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzmall/zzmall-fe.git"
+  },
+  "author": "Connor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzmall/zzmall-fe/issues"
+  },
+  "homepage": "https://github.com/zzmall/zzmall-fe#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.6.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
