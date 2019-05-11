@@ -10,6 +10,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var webpackDevServerOutput = require('webpack-dev-server-output');
+
 var getHtmlConfig = function(name){
     return {
         template: './src/view/' + name + '.html',
@@ -20,6 +22,7 @@ var getHtmlConfig = function(name){
 };
 
 var config = {
+    mode: 'production',
     entry: {
         'common' : ['./src/page/common/index.js'],
         'index' : ['./src/page/index/index.js'],
@@ -30,9 +33,18 @@ var config = {
         publicPath: '/',
         path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
-        index: '/view/index.html'
+    },
+    resolve: {
+        alias: {
+            node_modules: __dirname + '/node_modules',
+            util: __dirname + '/src/util',
+            page: __dirname + '/src/page',
+            service: __dirname + '/src/service',
+            image: __dirname + '/src/image'
+        }
     },
     externals: {
         'jquery' : 'window.jQuery'
@@ -90,6 +102,10 @@ var config = {
         new CleanWebpackPlugin(), //自动清理dist
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
+        }),
+        new webpackDevServerOutput({
+            path: './dist',
+            idDel: true
         }),
         new HtmlWebpackPlugin(getHtmlConfig('index')),
         new HtmlWebpackPlugin(getHtmlConfig('login')),

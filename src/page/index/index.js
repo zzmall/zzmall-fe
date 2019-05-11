@@ -1,14 +1,12 @@
 /*
  * @Author: Connor 
  * @Date: 2019-05-10 21:18:58 
- */
+*/
 
 require('./index.css');
 
-var $$ = require('jquery');
+require('page/common/nav/index.js');
+require('page/common/header/index.js');
+require('page/common/nav-side/index.js');
 
-$$('body').html('index hello');
-
-require('../module.js');
-
-console.log('hello index.js');
+var _mm =  require('util/mm.js');
