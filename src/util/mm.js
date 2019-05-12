@@ -78,7 +78,7 @@ var _mm = {
     },
     //统一登陆处理
     doLogin: function(){
-        window.location.href = './view/login.html?redirect=' + encodeURIComponent(window.location.href);
+        window.location.href = './view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
     }
 };
 
