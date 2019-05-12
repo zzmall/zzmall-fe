@@ -12,21 +12,24 @@ var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpackDevServerOutput = require('webpack-dev-server-output');
 
-var getHtmlConfig = function(name){
+var getHtmlConfig = function(name, title){
     return {
         template: './src/view/' + name + '.html',
         filename: 'view/' + name + '.html',
+        title: title,
         hash: true,
         chunks: ['common',name]
     };
 };
 
 var config = {
-    mode: 'production',
+    // mode: 'production',
+    mode: 'development',
     entry: {
-        'common' : ['./src/page/common/index.js'],
-        'index' : ['./src/page/index/index.js'],
-        'login' : ['./src/page/login/index.js']
+        'common': ['./src/page/common/index.js'],
+        'index': ['./src/page/index/index.js'],
+        'login': ['./src/page/login/index.js'],
+        'result': ['./src/page/result/index.js'],
     },
     output: {
         filename: 'js/[name].js',
@@ -69,6 +72,10 @@ var config = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.string$/,
+                use: ['html-loader']
             }
         ]
 
@@ -107,8 +114,9 @@ var config = {
             path: './dist',
             idDel: true
         }),
-        new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login')),
+        new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+        new HtmlWebpackPlugin(getHtmlConfig('login', '用户登陆')),
+        new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
 
     ]
 };

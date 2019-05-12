@@ -3,12 +3,11 @@
  * @Date: 2019-05-11 10:55:07 
 */
 
-var hogan = require('hogan.js');
-
+console.log('util mm.js');
 
 var conf = {
     //服务器host
-    serverHost: ''
+    serverHost: 'http://127.0.0.1/'
 };
 
 var _mm = {
@@ -49,11 +48,6 @@ var _mm = {
         var result = window.location.search.substr(1).match(reg);
         return result ? decodeURIComponent(result[2]) : null;
     },
-    //渲染html模板
-    renderHtml: function(htmlTemplate, data){
-        var template = hogan.compile(htmlTemplate), result = template.render(data);
-        return result;
-    },
     //成功提示
     successTips: function(msg){
         alert(msg || '操作成功');
@@ -63,8 +57,8 @@ var _mm = {
         alert(msg || '哪里不对了吧~');
     },
     //字段的验证，支持非空、手机、邮箱的判断
-    validate: function(value, type){
-        var value = $.trim(value);
+    validate: function(v, type){
+        var value = $.trim(v);
         //非空检验
         if('require' === type){
             return !!value;
@@ -85,7 +79,7 @@ var _mm = {
     //统一登陆处理
     doLogin: function(){
         window.location.href = './view/login.html?redirect=' + encodeURIComponent(window.location.href);
-    },
+    }
 };
 
 module.exports = _mm;
