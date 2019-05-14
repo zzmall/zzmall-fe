@@ -7,7 +7,7 @@ console.log('util mm.js');
 
 var conf = {
     //服务器host
-    serverHost: 'http://127.0.0.1/'
+    serverHost: 'http://localhost:8081'
 };
 
 var _mm = {
@@ -21,14 +21,15 @@ var _mm = {
             data: param.data || '',
             success: function(res){
                 //请求成功
-                if(0 === param.status) {
+                if(0 === res.status) {
                     typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
                 //没有登陆状态，需要强制登陆
-                else if(10 === param.status){
+                if(10 === param.status){
                     _this.doLogin();
                 }
-                else if(1 === res.status){
+                if(1 === res.status){
+                    console.log('status=1');
                     typeof param.error === 'function' && param.error(res.msg);
                 }
             },
@@ -57,7 +58,7 @@ var _mm = {
         alert(msg || '哪里不对了吧~');
     },
     //字段的验证，支持非空、手机、邮箱的判断
-    validate: function(v, type){
+    validata: function(v, type){
         var value = $.trim(v);
         //非空检验
         if('require' === type){
@@ -78,7 +79,7 @@ var _mm = {
     },
     //统一登陆处理
     doLogin: function(){
-        window.location.href = './view/user-login.html?redirect=' + encodeURIComponent(window.location.href);
+        window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     }
 };
 
