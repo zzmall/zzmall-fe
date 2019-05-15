@@ -30,7 +30,9 @@ var config = {
         'index': ['./src/page/index/index.js'],
         'user-login': ['./src/page/user-login/index.js'],
         'result': ['./src/page/result/index.js'],
-        'user-register': ['./src/page/user-register/index.js']
+        'user-register': ['./src/page/user-register/index.js'],
+        'user-pass-reset': ['./src/page/user-pass-reset/index.js'],
+
     },
     output: {
         filename: 'js/[name].js',
@@ -118,7 +120,8 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
         new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登陆')),
         new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
-        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册'))
+        new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+        new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码')),
 
     ]
 };
