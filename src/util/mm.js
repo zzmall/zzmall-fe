@@ -29,7 +29,7 @@ var _mm = {
                     _this.doLogin();
                 }
                 if(1 === res.status){
-                    console.log('status=1');
+                    // console.log('status=1');
                     typeof param.error === 'function' && param.error(res.msg);
                 }
             },

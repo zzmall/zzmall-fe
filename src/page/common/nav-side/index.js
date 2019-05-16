@@ -17,7 +17,6 @@ var navSide = {
             {name: 'order-list', desc: '我的订单', href: './order-list.html'},
             {name: 'pass-update', desc: '修改密码', href: './pass-update.html'},
             {name: 'about', desc: '关于ZZMall', href: './about.html'}
-            
         ]
     },
     init: function(option){
