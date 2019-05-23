@@ -9,7 +9,7 @@ var _user = {
     //用户登陆
     login: function(userInfo, resolve, reject){
         _mm.request({
-            url: _mm.getServerUrl('/user/login.do'),
+            url: _mm.getServerUrl('/login.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -61,10 +61,9 @@ var _user = {
     //验证用户名是否存在
     checkUsername: function(username, resolve, reject){
         _mm.request({
-            url: _mm.getServerUrl('/user/check_valid.do'),
+            url: _mm.getServerUrl('/user/check_username.do'),
             data: {
-                type: 'username',
-                str: username
+                username: username
             },
             method: 'POST',
             success: resolve,
@@ -83,7 +82,7 @@ var _user = {
     //获取用户信息
     getUserInfo: function(resolve, reject){
         _mm.request({
-            url: _mm.getServerUrl('/user/get_information.do'),
+            url: _mm.getServerUrl('/user/get_user_info.do'),
             method: 'POST',            
             success: resolve,
             error: reject
@@ -92,7 +91,7 @@ var _user = {
     //登出
     logout: function(resolve, reject){
         _mm.request({
-            url: _mm.getServerUrl('/user/logout.do'),
+            url: _mm.getServerUrl('/logout.do'),
             method: 'POST',
             success: resolve,
             error: reject
