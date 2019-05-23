@@ -19,7 +19,7 @@ var page = {
         listParam : {
             keyword         : _mm.getUrlParam('keyword')    || '',
             categoryId      : _mm.getUrlParam('categoryId') || '',
-            orderBy         : _mm.getUrlParam('orderBy')    || 'default',
+            orderBy         : _mm.getUrlParam('orderBy')    || '',
             pageNum         : _mm.getUrlParam('pageNum')    || 1,
             pageSize        : _mm.getUrlParam('pageSize')   || 20
         }
@@ -47,7 +47,7 @@ var page = {
                 else{
                     $this.addClass('active').siblings('.sort-item')
                         .removeClass('active asc desc');
-                    _this.data.listParam.orderBy = 'default';
+                    _this.data.listParam.orderBy = '';
                 }
             }
             // 点击价格排序
@@ -81,16 +81,16 @@ var page = {
         // 请求接口
         _product.getProductList(listParam, function(res){
             listHtml = renderHtml(templateIndex, {
-                list :  res.list
+                content :  res.content
             });
             $pListCon.html(listHtml);
             _this.loadPagination({
-                hasPreviousPage : res.hasPreviousPage,
-                prePage         : res.prePage,
-                hasNextPage     : res.hasNextPage,
-                nextPage        : res.nextPage,
-                pageNum         : res.pageNum,
-                pages           : res.pages
+                hasPreviousPage : !res.first,
+                prePage         : res.number,
+                hasNextPage     : !res.last,
+                nextPage        : res.number + 2,
+                pageNum         : res.number + 1,
+                pages           : res.totalPages
             });
         }, function(errMsg){
             _mm.errorTips(errMsg);

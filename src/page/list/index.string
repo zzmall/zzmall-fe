@@ -1,8 +1,8 @@
-{{#list}}
+{{#content}}
     <li class="p-item">
         <div class="p-img-con">
             <a class="link" href="./detail.html?productId={{id}}" target="_blank">
-                <img class="p-img" src="{{imageHost}}{{mainImage}}" alt="{{name}}" />
+                <img class="p-img" src="http://img.happymmall.com/{{mainImage}}" alt="{{name}}" />
             </a>
         </div>
         <div class="p-price-con">
@@ -12,7 +12,7 @@
             <a class="p-name" href="./detail.html?productId={{id}}" target="_blank">{{name}}</a>
         </div>
     </li>
-{{/list}}
-{{^list}}
+{{/content}}
+{{^content}}
     <p class="err-tip">很抱歉，实在找不到您要的商品。</p>
-{{/list}}
+{{/content}}

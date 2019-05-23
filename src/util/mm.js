@@ -25,8 +25,8 @@ var _mm = {
                     typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
                 //没有登陆状态，需要强制登陆
-                if(10 === param.status){
-                    _this.doLogin();
+                if(10 === res.status){
+                    window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
                 }
                 if(1 === res.status){
                     // console.log('status=1');
