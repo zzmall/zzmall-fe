@@ -7,7 +7,7 @@ console.log('util mm.js');
 
 var conf = {
     //服务器host
-    serverHost: 'http://localhost:8080/api'
+    serverHost: 'http://106.12.20.92:8083/api'
 };
 
 var _mm = {
